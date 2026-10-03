@@ -1,0 +1,120 @@
+@import "tailwindcss";
+
+/* ── Design tokens ─────────────────────────────────────────────────────────── */
+:root {
+  --bg:          #F8F5F0;   /* warm cream — every page background */
+  --surface:     #FFFFFF;
+  --border:      #E8E1D8;   /* warm beige borders */
+  --text:        #1C1C1C;   /* near-black */
+  --muted:       #8A8178;   /* warm gray */
+  --accent:      #C8711A;   /* warm amber-orange */
+  --accent-dark: #3D2A1A;   /* dark hover */
+  --error:       #B85450;
+  --success:     #6B8566;
+}
+
+@layer base {
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: var(--bg);
+    color: var(--text);
+    text-rendering: optimizeLegibility;
+  }
+
+  #root {
+    min-height: 100vh;
+  }
+
+  *:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar { width: 6px; height: 6px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 9999px; }
+  ::-webkit-scrollbar-thumb:hover { background: var(--muted); }
+
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
+    opacity: 0.4;
+  }
+}
+
+@layer utilities {
+  /* Display / heading font */
+  .font-display {
+    font-family: 'Bricolage Grotesque', sans-serif;
+  }
+
+  /* Serif italic — for big hero headlines */
+  .font-serif {
+    font-family: 'Playfair Display', ui-serif, Georgia, serif;
+  }
+
+  /* Section label above a heading — e.g. "YOUR PROJECTS" */
+  .label-eyebrow {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  /* Page enter */
+  .page-enter {
+    animation: pageIn 0.3s ease-out;
+  }
+
+  /* Skeleton shimmer — warm tones to match bg */
+  .skeleton {
+    background: linear-gradient(90deg, #EDE7DC 25%, #F5F0E8 50%, #EDE7DC 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.4s infinite;
+    border-radius: 8px;
+  }
+
+  /* Dot-grid page background */
+  .bg-dot-grid {
+    background-color: var(--bg);
+    background-image: radial-gradient(circle, #D8CEBF 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
+
+  .card-hover {
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
+  }
+  .card-hover:hover {
+    box-shadow: 0 8px 32px rgba(44, 32, 24, 0.08);
+    transform: translateY(-2px);
+  }
+}
+
+@keyframes pageIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes shimmer {
+  0%   { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-in-up { animation: fadeInUp 0.5s ease-out forwards; }

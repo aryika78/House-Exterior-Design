@@ -1,0 +1,23 @@
+# Python
+backend/venv/
+backend/__pycache__/
+backend/app/__pycache__/
+backend/app/**/__pycache__/
+**/__pycache__/
+*.pyc
+*.pyo
+
+# Environment — never commit secrets
+backend/.env
+.env
+
+# Local storage (images served from Supabase in prod)
+backend/storage/
+
+# Frontend
+frontend/node_modules/
+frontend/dist/
+
+# OS
+.DS_Store
+Thumbs.db
