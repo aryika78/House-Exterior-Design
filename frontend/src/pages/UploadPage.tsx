@@ -22,7 +22,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import toast from 'react-hot-toast'
 import {
   Upload, ImageIcon, X, AlertCircle, RefreshCw,
-  ArrowRight, CheckCircle2, Loader2, HelpCircle, Zap,
+  ArrowRight, CheckCircle2, Loader2, HelpCircle,
 } from 'lucide-react'
 import api from '@/services/api'
 import { useAuth } from '@/contexts/AuthContext'
@@ -94,7 +94,7 @@ function TipBanner() {
 export default function UploadPage() {
   const { id: projectId } = useParams<{ id: string }>()
   const navigate = useNavigate()
-  const { user } = useAuth()
+  useAuth()
 
   const [pageState, setPageState] = useState<PageState>('idle')
   const [selectedFile, setSelectedFile] = useState<File | null>(null)

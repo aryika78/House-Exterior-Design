@@ -279,10 +279,9 @@ function EditableCell({
 // ─── CostBreakdownPopup ────────────────────────────────────────────────────────────
 
 function CostBreakdownPopup({
-  items, tier, onClose, onItemChange,
+  items, onClose, onItemChange,
 }: {
   items: LocalCostItem[]
-  tier: string
   onClose: () => void
   onItemChange: (zoneId: string, field: 'measurement' | 'material_rate' | 'labor_rate', value: number) => void
 }) {
@@ -881,7 +880,6 @@ export default function ResultPage() {
         {showBreakdown && localItems.length > 0 && (
           <CostBreakdownPopup
             items={localItems}
-            tier={project.tier || 'standard'}
             onClose={() => setShowBreakdown(false)}
             onItemChange={handleItemChange}
           />

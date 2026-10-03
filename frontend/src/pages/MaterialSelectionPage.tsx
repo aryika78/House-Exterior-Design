@@ -21,7 +21,7 @@ import { useQuery } from '@tanstack/react-query'
 import { motion, AnimatePresence } from 'framer-motion'
 import toast from 'react-hot-toast'
 import {
-  ChevronLeft, X, Info, CheckCircle2, Loader2,
+  ChevronLeft, X, CheckCircle2, Loader2,
   AlertCircle, BookOpen, Zap,
 } from 'lucide-react'
 import api from '@/services/api'
