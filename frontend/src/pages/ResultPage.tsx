@@ -586,7 +586,7 @@ function RetryModal({
 export default function ResultPage() {
   const { id: projectId } = useParams<{ id: string }>()
   const navigate = useNavigate()
-  const { user } = useAuth()
+  const { user, refreshUser } = useAuth()
   const mountedRef = useRef(true)
   const saveTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null)
   const localItemsRef = useRef<LocalCostItem[]>([])
@@ -643,6 +643,7 @@ export default function ResultPage() {
       setLocalItems(project.cost_line_items.map((i: any) => ({ ...i })))
       setPrevRenderCount(renderCount)
       setShowRetryModal(false)
+      refreshUser()
     }
     // Always close retry modal if project is failed (it was force-closed remotely)
     if (project?.status === 'failed') setShowRetryModal(false)
