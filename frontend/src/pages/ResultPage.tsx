@@ -637,6 +637,7 @@ export default function ResultPage() {
       setLocalItems(project.cost_line_items.map((i: any) => ({ ...i })))
       setItemsReady(true)
       setPrevRenderCount(renderCount)
+      refreshUser()
     }
     // Re-init when a new render completes (render_count changed)
     if (prevRenderCount !== null && renderCount > prevRenderCount) {
