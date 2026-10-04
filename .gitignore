@@ -20,6 +20,7 @@ frontend/dist-ssr/
 
 # Docs / internal files — not for public repo
 SYSTEM_ARCHITECTURE.md
+*.docx
 
 # Claude / AI memory and session files
 .claude/
